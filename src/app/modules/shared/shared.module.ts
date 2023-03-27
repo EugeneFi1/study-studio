@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
+import {TranslateModule} from "@ngx-translate/core";
 
 const ANGULAR_MATERIAL = [
   MatToolbarModule,
@@ -12,11 +13,9 @@ const ANGULAR_MATERIAL = [
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    ANGULAR_MATERIAL
-  ],
   exports: [
+    CommonModule,
+    TranslateModule,
     ANGULAR_MATERIAL
   ]
 })

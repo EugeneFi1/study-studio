@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {NgxTranslateComponent} from './ngx-translate/ngx-translate.component';
 import {RouterModule, Routes} from "@angular/router";
+import {SharedModule} from "../shared/shared.module";
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
     NgxTranslateComponent
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ]
 })
