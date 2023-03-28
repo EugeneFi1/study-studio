@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import MENU_ITEMS from "../../../../assets/menu.config.json"
+import {HeaderMenuItem} from "../../../models/header-menu";
 
 @Component({
   selector: 'ss-header',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent {
-
+  public _menuItems: HeaderMenuItem[] = MENU_ITEMS;
 }

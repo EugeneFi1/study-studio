@@ -1,6 +1,10 @@
 <mat-toolbar>
-  <button mat-button [matMenuTriggerFor]="menu">{{"menu.btn.label.libraries" | translate}}</button>
-  <mat-menu #menu="matMenu">
-    <button routerLink="/libraries/ngx-translate" mat-menu-item>ngx-translate</button>
-  </mat-menu>
+  <ng-container *ngFor="let menuItem of _menuItems">
+    <button mat-button [matMenuTriggerFor]="menu">{{menuItem.name | translate}}</button>
+    <mat-menu #menu="matMenu">
+      <ng-container *ngFor="let subMenuItem of menuItem.subMenu">
+        <button [routerLink]="subMenuItem.routerLink" mat-menu-item>{{subMenuItem.name}}</button>
+      </ng-container>
+    </mat-menu>
+  </ng-container>
 </mat-toolbar>

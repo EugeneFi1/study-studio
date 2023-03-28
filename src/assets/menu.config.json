@@ -1,0 +1,11 @@
+[
+  {
+    "name": "menu.btn.label.libraries",
+    "subMenu": [
+      {
+        "routerLink": "/libraries/ngx-translate",
+        "name": "ngx-translate"
+      }
+    ]
+  }
+]
