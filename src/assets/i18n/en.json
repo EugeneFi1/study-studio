@@ -1,3 +1,4 @@
 {
-  "menu.btn.label.libraries": "Libraries"
+  "menu.libraries": "Libraries",
+  "submenu.ngx-translate": "ngx-translate"
 }

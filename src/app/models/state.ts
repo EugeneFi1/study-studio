@@ -1,4 +1,6 @@
+import {MenuItem} from "./header-menu";
+
 export interface State {
-  selectedMenuItemName: string;
-  selectedSubMenuItemName: string;
+  selectedMenuItem: MenuItem;
+  selectedSubMenuItem: MenuItem;
 }

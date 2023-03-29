@@ -5,8 +5,8 @@
       <ng-container *ngFor="let subMenuItem of menuItem.subMenu">
         <button [routerLink]="subMenuItem.routerLink"
                 mat-menu-item
-                (click)="_selectMenuItem(menuItem.name, subMenuItem.name)"
-        >{{subMenuItem.name}}</button>
+                (click)="_selectMenuItem(menuItem, subMenuItem)"
+        >{{subMenuItem.name | translate}}</button>
       </ng-container>
     </mat-menu>
   </ng-container>

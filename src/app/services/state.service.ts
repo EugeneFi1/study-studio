@@ -6,7 +6,7 @@ import {State} from "../models/state";
 export class StateService extends RxState<State> {
   constructor() {
     super();
-    this.hold(this.select("selectedMenuItemName"), (value) => {
+    this.hold(this.select("selectedMenuItem"), (value) => {
       console.log(value)
     })
   }

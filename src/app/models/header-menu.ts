@@ -1,9 +1,8 @@
-interface SubMenuItem {
+export interface MenuItem {
   routerLink: string,
   name: string;
 }
 
-export interface HeaderMenuItem {
-  name: string,
-  subMenu: SubMenuItem[]
+export interface HeaderMenuItem extends MenuItem {
+  subMenu: MenuItem[]
 }

@@ -1,3 +1,4 @@
 {
-  "menu.btn.label.libraries": "Бібліотеки"
+  "menu.libraries": "Бібліотеки",
+  "submenu.ngx-translate": "ngx-translate"
 }
