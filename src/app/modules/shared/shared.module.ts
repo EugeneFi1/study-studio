@@ -5,6 +5,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {BreadcrumbsComponent} from './breadcrumbs/breadcrumbs.component';
 
 const ANGULAR_MATERIAL = [
   MatToolbarModule,
@@ -14,11 +15,19 @@ const ANGULAR_MATERIAL = [
 ]
 
 @NgModule({
-  declarations: [],
+  imports: [
+    TranslateModule,
+    CommonModule,
+    ANGULAR_MATERIAL
+  ],
+  declarations: [
+    BreadcrumbsComponent
+  ],
   exports: [
     CommonModule,
     TranslateModule,
-    ANGULAR_MATERIAL
+    ANGULAR_MATERIAL,
+    BreadcrumbsComponent
   ]
 })
 export class SharedModule {

@@ -8,6 +8,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {SharedModule} from "./modules/shared/shared.module";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -18,21 +19,22 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent
   ],
-  imports: [
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      },
-      defaultLanguage: "en"
-    }),
-    AppRoutingModule,
-    BrowserModule,
-    CoreModule,
-    BrowserAnimationsModule,
-  ],
+    imports: [
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            },
+            defaultLanguage: "en"
+        }),
+        AppRoutingModule,
+        BrowserModule,
+        CoreModule,
+        BrowserAnimationsModule,
+        SharedModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

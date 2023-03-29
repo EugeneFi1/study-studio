@@ -1,0 +1,11 @@
+<mat-toolbar class="ss-breadcrumbs">
+  <span>
+    Home
+    <ng-container *ngIf="menuItem$ | async as menuItem">
+      > {{menuItem.name | translate}} >
+    </ng-container>
+    <ng-container *ngIf="subMenuItem$ | async as subMenuItem">
+      {{subMenuItem.name | translate}}
+    </ng-container>
+  </span>
+</mat-toolbar>
