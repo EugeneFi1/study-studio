@@ -4,11 +4,13 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {TranslateModule} from "@ngx-translate/core";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 const ANGULAR_MATERIAL = [
   MatToolbarModule,
   MatMenuModule,
-  MatButtonModule
+  MatButtonModule,
+  MatSidenavModule
 ]
 
 @NgModule({

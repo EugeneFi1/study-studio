@@ -3,7 +3,10 @@
     <button mat-button [matMenuTriggerFor]="menu">{{menuItem.name | translate}}</button>
     <mat-menu #menu="matMenu">
       <ng-container *ngFor="let subMenuItem of menuItem.subMenu">
-        <button [routerLink]="subMenuItem.routerLink" mat-menu-item>{{subMenuItem.name}}</button>
+        <button [routerLink]="subMenuItem.routerLink"
+                mat-menu-item
+                (click)="_selectMenuItem(menuItem.name, subMenuItem.name)"
+        >{{subMenuItem.name}}</button>
       </ng-container>
     </mat-menu>
   </ng-container>
