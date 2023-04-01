@@ -6,7 +6,7 @@
             (click)="_selectTreeData(menuItem)"
     >{{menuItem.name}}</button>
     <mat-menu class="ss-header__popover" #menu="matMenu">
-      <mat-tree style="margin-right: 30px" [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
         <!-- This is the tree node template for leaf nodes -->
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
           <!-- use a disabled button to provide padding for tree leaf -->
