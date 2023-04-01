@@ -1,11 +1,13 @@
 [
   {
-    "name": "menu.libraries",
+    "id": "1",
+    "name": "Libraries",
     "routerLink": "/libraries",
     "subMenu": [
       {
-        "routerLink": "/libraries/ngx-translate",
-        "name": "submenu.ngx-translate"
+        "id": "2",
+        "name": "ngx-translate",
+        "routerLink": "/libraries/ngx-translate"
       }
     ]
   }

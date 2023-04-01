@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {StateService} from "../../../services/state.service";
 import {Observable} from "rxjs";
-import {MenuItem} from "../../../models/header-menu";
+import {Page} from "../../../models/page-item";
+import {BreadcrumbItem} from "../../../models/breadcrumbs";
 
 @Component({
   selector: 'ss-breadcrumbs',
@@ -9,9 +10,11 @@ import {MenuItem} from "../../../models/header-menu";
   styleUrls: ['./breadcrumbs.component.less']
 })
 export class BreadcrumbsComponent {
-  public menuItem$: Observable<MenuItem> = this.stateService.select("selectedMenuItem");
-  public subMenuItem$: Observable<MenuItem> = this.stateService.select("selectedSubMenuItem");
-
+  @Input() public items: Page[] | null | undefined;
   public constructor(private stateService: StateService) {
+  }
+
+  public _selectMenuItem(page: Page): void {
+    this.stateService.set({selectedPage: page})
   }
 }

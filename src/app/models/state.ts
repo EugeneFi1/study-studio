@@ -1,6 +1,7 @@
-import {MenuItem} from "./header-menu";
+import {Page} from "./page-item";
 
 export interface State {
-  selectedMenuItem: MenuItem;
-  selectedSubMenuItem: MenuItem;
+  selectedPage: Page;
+  pages: Record<string, Page>;
+  breadcrumbs: Page[];
 }

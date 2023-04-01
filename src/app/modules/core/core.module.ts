@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './header/header.component';
 import {SharedModule} from "../shared/shared.module";
 import {RouterLink} from "@angular/router";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {RouterLink} from "@angular/router";
     imports: [
         CommonModule,
         SharedModule,
-        RouterLink
+        RouterLink,
+        MatIconModule
     ]
 })
 export class CoreModule {

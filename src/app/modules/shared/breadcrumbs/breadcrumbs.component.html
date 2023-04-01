@@ -1,11 +1,14 @@
-<mat-toolbar class="ss-breadcrumbs">
+<mat-toolbar *ngIf="items?.length as breadcrumbLength" class="ss-breadcrumbs">
   <span>
-    Home
-    <ng-container *ngIf="menuItem$ | async as menuItem">
-      > {{menuItem.name | translate}} >
-    </ng-container>
-    <ng-container *ngIf="subMenuItem$ | async as subMenuItem">
-      {{subMenuItem.name | translate}}
+    <ng-container *ngFor="let breadcrumbItem of items; index as i">
+      <a [routerLink]="breadcrumbItem.routerLink"
+          (click)="_selectMenuItem(breadcrumbItem)"
+      >
+        {{breadcrumbItem.name}}
+      </a>
+      <ng-container *ngIf="breadcrumbLength !== i + 1">
+        >
+      </ng-container>
     </ng-container>
   </span>
 </mat-toolbar>

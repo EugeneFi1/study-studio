@@ -6,19 +6,23 @@ import {MatButtonModule} from "@angular/material/button";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {BreadcrumbsComponent} from './breadcrumbs/breadcrumbs.component';
+import {RouterLink} from "@angular/router";
+import {MatTreeModule} from "@angular/material/tree";
 
 const ANGULAR_MATERIAL = [
   MatToolbarModule,
   MatMenuModule,
   MatButtonModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTreeModule
 ]
 
 @NgModule({
   imports: [
     TranslateModule,
     CommonModule,
-    ANGULAR_MATERIAL
+    ANGULAR_MATERIAL,
+    RouterLink
   ],
   declarations: [
     BreadcrumbsComponent

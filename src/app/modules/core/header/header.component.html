@@ -1,13 +1,32 @@
-<mat-toolbar>
+<mat-toolbar class="ss-header">
   <ng-container *ngFor="let menuItem of _menuItems">
-    <button mat-button [matMenuTriggerFor]="menu">{{menuItem.name | translate}}</button>
-    <mat-menu #menu="matMenu">
-      <ng-container *ngFor="let subMenuItem of menuItem.subMenu">
-        <button [routerLink]="subMenuItem.routerLink"
-                mat-menu-item
-                (click)="_selectMenuItem(menuItem, subMenuItem)"
-        >{{subMenuItem.name | translate}}</button>
-      </ng-container>
+    <button mat-button
+            [routerLink]="menuItem.routerLink"
+            [matMenuTriggerFor]="menu"
+            (click)="_selectTreeData(menuItem)"
+    >{{menuItem.name}}</button>
+    <mat-menu class="ss-header__popover" #menu="matMenu">
+      <mat-tree style="margin-right: 30px" [dataSource]="dataSource" [treeControl]="treeControl">
+        <!-- This is the tree node template for leaf nodes -->
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+          <!-- use a disabled button to provide padding for tree leaf -->
+          <button mat-icon-button disabled></button>
+          <a [routerLink]="node.routerLink" (click)="_selectMenuItem(node)">{{node.name}}</a>
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+          <button mat-icon-button matTreeNodeToggle
+                  [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          <a [routerLink]="node.routerLink"
+             (click)="_selectMenuItem(node)"
+          >{{node.name}}</a>
+        </mat-tree-node>
+      </mat-tree>
     </mat-menu>
   </ng-container>
 </mat-toolbar>
+
