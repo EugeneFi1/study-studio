@@ -5,16 +5,19 @@ import {SharedModule} from "../shared/shared.module";
 import {RouterLink} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import { HomePageComponent } from './home-page/home-page.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    HomePageComponent
+    HomePageComponent,
+    FooterComponent
   ],
   exports: [
     HeaderComponent,
-    HomePageComponent
+    HomePageComponent,
+    FooterComponent
   ],
     imports: [
         CommonModule,
