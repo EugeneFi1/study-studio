@@ -29,7 +29,7 @@ export class HeaderComponent {
     };
   };
 
-  private treeFlattener = new MatTreeFlattener(
+  private treeFlattener = new MatTreeFlattener(  
     this._transformer,
     node => node.level,
     node => node.expandable,
