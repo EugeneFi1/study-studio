@@ -8,6 +8,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {BreadcrumbsComponent} from './breadcrumbs/breadcrumbs.component';
 import {RouterLink} from "@angular/router";
 import {MatTreeModule} from "@angular/material/tree";
+import { PageComponent } from './page/page.component';
 
 const ANGULAR_MATERIAL = [
   MatToolbarModule,
@@ -25,13 +26,15 @@ const ANGULAR_MATERIAL = [
     RouterLink
   ],
   declarations: [
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    PageComponent
   ],
   exports: [
     CommonModule,
     TranslateModule,
     ANGULAR_MATERIAL,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    PageComponent
   ]
 })
 export class SharedModule {
