@@ -5,9 +5,26 @@
     "routerLink": "/libraries",
     "subMenu": [
       {
-        "id": "2",
+        "id": "1-1",
         "name": "ngx-translate",
         "routerLink": "/libraries/ngx-translate"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Algo",
+    "routerLink": "/algo",
+    "subMenu": [
+      {
+        "id": "2-1",
+        "name": "intro",
+        "routerLink": "/algo/intro"
+      },
+      {
+        "id": "2-2",
+        "name": "binary-search",
+        "routerLink": "/algo/binary-search"
       }
     ]
   }

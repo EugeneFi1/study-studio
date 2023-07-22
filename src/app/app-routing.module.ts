@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: "libraries",
     loadChildren: () => import("./modules/libraries/libraries.module").then(m => m.LibrariesModule)
+  },
+  {
+    path: "algo",
+    loadChildren: () => import("./modules/algo/algo.module").then(m => m.AlgoModule)
   }
 ]
 

@@ -1,0 +1,14 @@
+<ss-page [header]="'Binary Search'">
+  <div style="height: 300px">
+    <button nz-button nzType="primary">Primary</button>
+    <ngs-code-editor
+      [theme]="theme"
+      language="typescript"
+      [codeModel]="codeModel"
+      [readOnly]="false"
+      [options]="options"
+      (valueChanged)="onCodeChanged($event)"
+    >
+    </ngs-code-editor>
+  </div>
+</ss-page>

@@ -32,6 +32,7 @@ export class StateService extends RxState<State> {
         pushSelectedPageParentsHierarchy(selectedPage.id)
         result.push(homeBreadcrumb)
         result.reverse();
+        console.log(result)
         return result.filter(value => !!value);
       }),
       startWith([homeBreadcrumb])
