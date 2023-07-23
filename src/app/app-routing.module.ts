@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 export enum TABS {
   ANGULAR = 'Angular',
   DESIGN_PATTERNS = 'Desighn Patterns',
+  CSS = "CSS"
 }
 
 export const routes: Routes = [
@@ -28,6 +29,17 @@ export const routes: Routes = [
     data: {
       tab: TABS.DESIGN_PATTERNS,
       title: 'Singleton',
+    },
+  },
+  {
+    path: 'flex',
+    loadComponent: () =>
+      import('./components/css/flex/flex.component').then(
+        (mod) => mod.FlexComponent
+      ),
+    data: {
+      tab: TABS.CSS,
+      title: 'Flex',
     },
   },
 ];

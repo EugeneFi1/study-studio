@@ -14,7 +14,8 @@ export class AppComponent implements OnInit {
   public _isCollapsed = false;
   public _tabIcon: Record<string, string> = {
     [TABS.ANGULAR]: "rocket",
-    [TABS.DESIGN_PATTERNS]: "code"
+    [TABS.DESIGN_PATTERNS]: "code",
+    [TABS.CSS]: "format-painter"
   }
 
   public ngOnInit(): void {
