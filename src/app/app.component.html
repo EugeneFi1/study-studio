@@ -1,6 +1,64 @@
-<ss-header></ss-header>
-<ss-breadcrumbs
-  [items]="_breadcrumbItems$ | async"
-></ss-breadcrumbs>
-<router-outlet></router-outlet>
-<!-- <ss-footer></ss-footer> -->
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="_isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <a routerLink="/">
+        <span
+          nz-icon
+          nzType="thunderbolt"
+          nzTheme="outline"
+          style="font-size: 18px"
+        ></span>
+        <h1>Study Studio</h1>
+      </a>
+    </div>
+    <ul
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="_isCollapsed"
+    >
+      <li
+        *ngFor="let tab of _tabs"
+        nz-submenu
+        nzOpen
+        [nzTitle]="tab.title"
+        [nzIcon]="_tabIcon[tab.title]"
+      >
+        <ul>
+          <li
+            *ngFor="let route of tab.subMenu"
+            nz-menu-item
+            [nzMatchRouter]="true"
+          >
+            <a [routerLink]="'/' + route.path">{{ route.title }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="_isCollapsed = !_isCollapsed">
+          <span
+            class="trigger"
+            nz-icon
+            [nzType]="_isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -1,25 +1,39 @@
-import {NgModule} from "@angular/core";
-import {RouterModule, Routes} from "@angular/router";
-import {HomePageComponent} from "./modules/core/home-page/home-page.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
+export enum TABS {
+  ANGULAR = 'Angular',
+  DESIGN_PATTERNS = 'Desighn Patterns',
+}
+
+export const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   {
-    path: "",
-    component: HomePageComponent,
+    path: 'signals',
+    loadComponent: () =>
+      import('./components/angular/signals/signals.component').then(
+        (mod) => mod.SignalsComponent
+      ),
+    data: {
+      tab: TABS.ANGULAR,
+      title: 'Signals',
+    },
   },
   {
-    path: "libraries",
-    loadChildren: () => import("./modules/libraries/libraries.module").then(m => m.LibrariesModule)
+    path: 'singleton',
+    loadComponent: () =>
+      import('./components/design-patterns/singleton/singleton.component').then(
+        (mod) => mod.SingletonComponent
+      ),
+    data: {
+      tab: TABS.DESIGN_PATTERNS,
+      title: 'Singleton',
+    },
   },
-  {
-    path: "algo",
-    loadChildren: () => import("./modules/algo/algo.module").then(m => m.AlgoModule)
-  }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
