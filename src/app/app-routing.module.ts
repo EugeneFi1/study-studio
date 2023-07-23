@@ -4,11 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 export enum TABS {
   ANGULAR = 'Angular',
   DESIGN_PATTERNS = 'Desighn Patterns',
-  CSS = "CSS"
+  CSS = 'CSS',
 }
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
+  {
+    path: 'settings',
+    loadComponent: () =>
+      import('./core/settings/settings.component').then(
+        (mod) => mod.SettingsComponent
+      ),
+  },
   {
     path: 'signals',
     loadComponent: () =>
