@@ -1,29 +1,55 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodeEditorModule, CodeModel } from '@ngstack/code-editor';
+import { ConfigService } from 'src/app/services/config.service';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'ss-settings',
   standalone: true,
   imports: [CommonModule, CodeEditorModule],
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.less']
+  styleUrls: ['./settings.component.less'],
 })
-export class SettingsComponent {
-  theme = 'vs-dark';
+export class SettingsComponent implements OnInit {
+  public theme = 'vs-dark';
 
-  codeModel: CodeModel = {
+  public defaultModel: CodeModel = {
     language: 'json',
     uri: 'main.json',
-    value: '{}'
+    value: '{}',
   };
 
-  options = {
+  public codeModel$: Observable<CodeModel> = this.configService
+    .getConfig()
+    .pipe(
+      map(
+        (data) =>
+          ({
+            language: 'json',
+            uri: 'main.json',
+            value: JSON.stringify(data),
+          } as CodeModel)
+      )
+    );
+
+  public options = {
     contextmenu: true,
     minimap: {
-      enabled: true
-    }
+      enabled: true,
+    },
   };
+
+  constructor(private configService: ConfigService) {}
+
+  public ngOnInit(): void {
+    // this.codeModel$ = this.configService.getConfig()
+    // .pipe(map(data => ({
+    //   language: 'json',
+    //   uri: 'main.json',
+    //   value: JSON.stringify(data)
+    // })))
+  }
 
   onCodeChanged(value: string) {
     console.log('CODE', value);

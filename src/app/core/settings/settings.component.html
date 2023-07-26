@@ -1,7 +1,7 @@
 <p>settings works!</p>
 <ngs-code-editor
   [theme]="theme"
-  [codeModel]="codeModel"
+  [codeModel]="(codeModel$ | async) || defaultModel"
   [options]="options"
   (valueChanged)="onCodeChanged($event)">
 </ngs-code-editor>
