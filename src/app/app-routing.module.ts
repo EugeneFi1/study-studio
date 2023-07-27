@@ -49,6 +49,17 @@ export const routes: Routes = [
       title: 'Flex',
     },
   },
+  {
+    path: 'natours',
+    loadComponent: () =>
+      import('./components/css/natours/natours.component').then(
+        (mod) => mod.NatoursComponent
+      ),
+    data: {
+      tab: TABS.CSS,
+      title: 'Natours',
+    },
+  },
 ];
 
 @NgModule({
